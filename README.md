@@ -28,7 +28,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of Flixter App clone:
 
 <img src='https://media.giphy.com/media/fv63gYFZhBW0K0RX0j/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 

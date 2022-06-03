@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="30sp"
-        tools:text="Monster Hunter" />
+        tools:text="Morbius" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -28,13 +28,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:isIndicator="true"
-        android:numStars="10"
-        android:rating="8.5" />
+        android:numStars="5"
+        android:rating="2"
+        android:stepSize="0.5" />
 
     <TextView
         android:id="@+id/tvOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:text="A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home." />
+        tools:text="Dangerously ill with a rare blood disorder and determined to save others from the same fate, Dr. Morbius attempts a desperate gamble. What at first appears to be a radical success soon reveals itself to be a remedy potentially worse than the disease." />
 </LinearLayout>

@@ -1,14 +1,18 @@
 package com.example.fbu_flixter;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.fbu_flixter.adapters.MovieAdapter;
+import com.example.fbu_flixter.models.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,14 +21,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.fbu_flixter.adapters.MovieAdapter;
-import com.example.fbu_flixter.models.Movie;
 import okhttp3.Headers;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     public static final String NOW_PLAYING_URL="https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String TAG = "MainActivity";
+
 
     List<Movie> movies;
 
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();
+
+
 
         //create adapter
         MovieAdapter movieAdapter = new MovieAdapter(this, movies);
@@ -67,5 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG,"onFailure");
             }
         });
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            Log.i(TAG, "method is invoked");
     }
 }

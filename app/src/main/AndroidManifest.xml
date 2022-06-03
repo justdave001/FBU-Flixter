@@ -4,6 +4,11 @@
     package="com.example.fbu_flixter">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FBUFlixter"
         tools:targetApi="31">
+        <activity android:name=".DetailActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

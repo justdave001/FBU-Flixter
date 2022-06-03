@@ -1,14 +1,16 @@
 package com.example.fbu_flixter.models;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Movie {
-
     String backdropPath;
     String posterPath;
     String title;
@@ -16,8 +18,9 @@ public class Movie {
     double rating;
     int movie_id;
 
+    public Movie(){}
+
     public Movie(JSONObject jsonObject) throws JSONException {
-        backdropPath = jsonObject.getString("backdrop_path");
         posterPath = jsonObject.getString("poster_path");
 
         title = jsonObject.getString("title");
@@ -48,8 +51,8 @@ public class Movie {
     public String  getOverview(){
          return overview;
     }
-    public String  getBackdropPath(){
-        return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
-    }
+         public String  getBackdropPath(){
+         return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
+   }
 
 }

@@ -1,6 +1,7 @@
 package com.example.fbu_flixter.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,14 +30,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View movieView =  LayoutInflater.from(context).inflate(R.layout.item_movie,parent,false);
-       return new ViewHolder(movieView);
+        Log.d("MovieAdapter","onBindWorks");
+        View movieView =  LayoutInflater.from(context).inflate(R.layout.item_movie,parent,false);
+        return new ViewHolder(movieView);
 
     }
     //populating data into item thru holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       //get movie at the passed in posiiton
+        Log.d("MovieAdapter","onBindWorks" + position);
+        //get movie at the passed in posiiton
         Movie movie = movies.get(position);
         //bind movie to view
         holder.bind(movie);
@@ -62,7 +65,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         public void bind(Movie movie) {
             titleView.setText(movie.getTitle());
             overview.setText(movie.getOverview());
-            Glide.with(context).load(movie.getPosterPath()).into(poster);
+            Glide.with(context)
+                    .load(movie.getPosterPath())
+                    .placeholder(R.drawable.progress_animation)
+                    .error(R.drawable.try_again)
+                    .into(poster);
         }
+
     }
+
 }

@@ -40,20 +40,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        //create adapter
         MovieAdapter movieAdapter = new MovieAdapter(this, movies);
 
-        //set adapter on rv
+     
         rvMovies.setAdapter(movieAdapter);
 
-        //set layout manager
+
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
         AsyncHttpClient myclient = new AsyncHttpClient();
         myclient.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
-                Log.d(TAG, "onSuccess");
+               
                 JSONObject jsonObject = json.jsonObject;
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
@@ -62,20 +61,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies" + movies.size());
                 } catch (JSONException e) {
-                    Log.e(TAG, "Hit json exception", e);
+                    
 
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                Log.d(TAG,"onFailure");
+             
             }
         });
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//            Log.i(TAG, "method is invoked");
+
     }
 }
